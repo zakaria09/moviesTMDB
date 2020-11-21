@@ -1,11 +1,8 @@
-<mat-list>
-  <h1>Movies List</h1>
-  <mat-checkbox >Show only favourites</mat-checkbox>
-  <mat-list-item class="list" *ngFor="let movie of ($movies | async)">
-    <img class="poster" [src]="movie.poster_path" alt="Poster of {{ movie.title }}">
-    <h3 class="title">
-      {{ movie.title }}
-    </h3>
-    <favourite-movie [movie]="movie"></favourite-movie>
-  </mat-list-item>
-</mat-list>
+<img class="poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="Poster of {{ movie.title }}">
+<button
+  class="title"
+  mat-button
+  (click)="goToMoreDetail(movie)">
+  {{ movie.title }}
+</button>
+<favourite-movie class="favourite" [movie]="movie"></favourite-movie>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'movies-list',
@@ -9,13 +9,14 @@ import { MovieService } from '../../services/movie.service';
 })
 export class MoviesListComponent implements OnInit {
 
-  $movies: Observable<any>;
+  @Input() movie: any;
+  @Output() selectedMovie: EventEmitter<any> = new EventEmitter();
 
-  constructor(
-    private movieServies: MovieService
-  ) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.$movies = this.movieServies.getMovies();
+  ngOnInit() {}
+
+  goToMoreDetail(movie) {
+    this.selectedMovie.emit(movie);
   }
 }

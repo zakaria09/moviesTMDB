@@ -1,0 +1,12 @@
+<button
+  mat-fab
+  color="primary"
+  aria-label="Go back"
+  (click)="goBack()">
+  <mat-icon>keyboard_arrow_left</mat-icon>
+</button>
+<ng-container *ngFor="let movie of ($movie | async)">
+  <img class="poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="Poster of {{ movie.title }}">
+  <h1>{{ movie.title }}</h1>
+  <favourite-movie [movie]="movie"></favourite-movie>
+</ng-container>

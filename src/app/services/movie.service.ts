@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { map, pluck, tap } from 'rxjs/operators';
 import { Movie } from '../Interfaces/movie';
 
@@ -23,20 +24,19 @@ export class MovieService {
     return this.http.get(this.moviesListURL)
       .pipe(
         pluck('results'),
-        map((movies: Array<any>) => this.getMoviesNameAndPoster(movies))
+        map((movies: Array<any>) => this.getMoviesInfo(movies)),
       );
   }
 
-  private getMoviesNameAndPoster(movies: Array<any>) {
-    const moviesAndPosters = movies.map((movie: { id: number, title: string, poster_path: string }) => {
-      const { id, title, poster_path } = movie;
+  private getMoviesInfo(movies: Array<any>): Array<any> {
+    const moviesAndPosters = movies.map((movie: { poster_path: string }) => {
+      const { poster_path } = movie;
       return {
-        id,
-        title,
-        poster_path: `https://image.tmdb.org/t/p/w342${poster_path}`,
+        ...movie,
+        poster_path,
         isFavourite: false
       }
-    })
+    });
     return moviesAndPosters;
   }
 

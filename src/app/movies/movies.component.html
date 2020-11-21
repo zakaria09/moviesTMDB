@@ -1,0 +1,13 @@
+<ng-container *ngIf="!isListView;else movieDetail">
+  <mat-list>
+    <h1>Movies List</h1>
+    <mat-divider></mat-divider>
+    <mat-checkbox >Show only favourites</mat-checkbox>
+    <mat-list-item class="list" *ngFor="let movie of movies">
+      <movies-list (selectedMovie)="handleSelectedMovie($event)" [movie]="movie"></movies-list>
+    </mat-list-item>
+  </mat-list>
+</ng-container>
+<ng-template #movieDetail>
+  <movie-details [$movie]="selectedMovie"></movie-details>
+</ng-template>

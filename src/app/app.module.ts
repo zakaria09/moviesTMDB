@@ -8,27 +8,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FavouriteMovieComponent } from './movies/favourite-movie/favourite-movie.component';
 import { MovieService } from './services/movie.service';
+import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
+import { ListFavouritesComponent } from './movies/list-favourites/list-favourites.component';
+import { MoviesComponent } from './movies/movies.component';
 
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesListComponent,
-    FavouriteMovieComponent
+    FavouriteMovieComponent,
+    MovieDetailsComponent,
+    ListFavouritesComponent,
+    MoviesComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule,
+    MatGridListModule,
   ],
   providers: [
     MovieService
