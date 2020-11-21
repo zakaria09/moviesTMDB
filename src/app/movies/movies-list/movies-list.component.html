@@ -1,5 +1,6 @@
 <mat-list>
   <h1>Movies List</h1>
+  <mat-checkbox >Show only favourites</mat-checkbox>
   <mat-list-item class="list" *ngFor="let movie of ($movies | async)">
     <img class="poster" [src]="movie.poster_path" alt="Poster of {{ movie.title }}">
     <h3 class="title">

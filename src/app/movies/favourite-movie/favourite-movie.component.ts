@@ -1,12 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-interface Movie {
-  id: number,
-  title: string,
-  poster_path: string,
-  isFavourite: boolean,
-  // add more optional
-}
+import { Movie } from 'src/app/Interfaces/movie';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'favourite-movie',
@@ -18,13 +12,13 @@ export class FavouriteMovieComponent implements OnInit {
 
   @Input() movie: Movie;
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
   }
 
   favourited(movie: Movie) {
     movie.isFavourite = !movie.isFavourite;
-    console.log(movie);
+    this.movieService.addFavouriteMovie(movie);
   }
 }

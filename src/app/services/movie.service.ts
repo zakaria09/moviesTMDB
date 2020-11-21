@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, pluck, tap } from 'rxjs/operators';
+import { Movie } from '../Interfaces/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,13 @@ import { map, pluck, tap } from 'rxjs/operators';
 export class MovieService {
 
   readonly moviesListURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=892ae99b0451fed76a0ece0a8d0c1414';
+
+  // closed to outside modification
+  private favouriteMovies = [];
+
+  get allFavouriteMovies() {
+    return this.favouriteMovies;
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -32,4 +40,10 @@ export class MovieService {
     return moviesAndPosters;
   }
 
+  addFavouriteMovie(movie: Movie) {
+    if (movie.isFavourite) {
+      this.favouriteMovies.unshift(movie);
+    }
+    this.favouriteMovies = this.favouriteMovies.filter(m => m.isFavourite === true);
+  }
 }
