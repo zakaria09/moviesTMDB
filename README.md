@@ -1,5 +1,13 @@
 # Movies
 
+Hello and welcome!
+
+To view the hosted project go to: (http://popular-movies-tmdb.s3-website.eu-west-2.amazonaws.com/)
+
+Otherwise feel free to download using the info provided by default below ⬇️
+
+Thanks!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
