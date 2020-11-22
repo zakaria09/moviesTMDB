@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
-import { ViewService } from '../../services/view.service';
 
 @Component({
   selector: 'list-favourites',
@@ -9,19 +8,16 @@ import { ViewService } from '../../services/view.service';
 })
 export class ListFavouritesComponent implements OnInit {
 
+  // get the favourite movies array from service
+  // to display if user only wants to see their favs
   get movies() {
     return this.movieService.allFavouriteMovies;
   }
 
   constructor(
-    private movieService: MovieService,
-    private viewService: ViewService
+    private movieService: MovieService
   ) { }
 
   ngOnInit() {
-  }
-
-  goBack() {
-    this.viewService.toggleView(true);
   }
 }

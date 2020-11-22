@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class MoviesListComponent implements OnInit {
 
-  @Input() movies: any;
+  // input and output properties
+  // input for movies array
+  // output for emitting selected movie
+  @Input() movies: Array<any>;
   @Output() selectedMovie: EventEmitter<any> = new EventEmitter();
 
   onlyShowFavourites = false;
@@ -18,11 +21,13 @@ export class MoviesListComponent implements OnInit {
 
   ngOnInit() {}
 
+  // toggle only show favourites
   showFavourites() {
     this.onlyShowFavourites = !this.onlyShowFavourites;
-    console.log(this.onlyShowFavourites);
   }
 
+  // emit selected movie properties to be
+  // used in the movie-details component
   goToMoreDetail(movie) {
     this.selectedMovie.emit(movie);
   }

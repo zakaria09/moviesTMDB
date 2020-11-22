@@ -4,14 +4,17 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+// Single Responsibility
 export class ViewService {
 
-  $toggleDetailView: BehaviorSubject<any> = new BehaviorSubject<any>(true);
+  // if not detail view show list view instead
+  $isDetailView: BehaviorSubject<any> = new BehaviorSubject<any>(true);
 
   constructor() { }
 
+  // change the views with the method
   toggleView(isListView: boolean) {
-    this.$toggleDetailView.next(isListView);
+    this.$isDetailView.next(isListView);
   }
 
 }
