@@ -13,3 +13,11 @@
 .favourited {
   margin-left: auto;
 }
+
+$breakpoint-tablet: 770px;
+@media (max-width: $breakpoint-tablet) {
+  .movie_title {
+    font-size: 1em;
+    word-wrap: break-word;
+  }
+}
