@@ -14,3 +14,12 @@
 .favourite {
   margin-left: auto;
 }
+
+$breakpoint-tablet: 520px;
+@media (max-width: $breakpoint-tablet) {
+  .title {
+    font-size: 0.5em;
+    width: 40%;
+    word-wrap: break-word;
+  }
+}
