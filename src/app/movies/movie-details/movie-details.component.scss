@@ -1,0 +1,56 @@
+
+.back-button {
+  margin-bottom: 1em;
+}
+
+.title {
+  padding: 0.8em;
+  font-size: 2em;
+}
+
+.poster {
+  height: 20em;
+}
+
+.info {
+  width: 100%;
+}
+
+.favourite {
+  margin-left: auto;
+}
+
+.more-info {
+  display: block;
+  height: 40%;
+  padding: 1em;
+  margin: 3em 0;
+}
+
+.overview {
+  padding: 1.5em;
+  line-height: 1.5;
+  font-size: 1.1em;
+  width: 90%;
+}
+
+.star-rating {
+  font-size: 1.5em;
+}
+
+$breakpoint-tablet: 770px;
+@media (max-width: $breakpoint-tablet) {
+  .poster {
+    height: 13em;
+  }
+  .more-info {
+    display: block;
+    height: 100%;
+  }
+  .title {
+    font-size: 0.9em;
+  }
+  .star-rating {
+    font-size: 0.5em;
+  }
+}

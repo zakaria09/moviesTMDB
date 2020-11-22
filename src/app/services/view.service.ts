@@ -6,16 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ViewService {
 
-  $toggleDetailView: BehaviorSubject<any> = new BehaviorSubject<any>(false);
+  $toggleDetailView: BehaviorSubject<any> = new BehaviorSubject<any>(true);
 
   constructor() { }
 
-  changeToDetailsView() {
-    this.$toggleDetailView.next(true);
-  }
-
-  backToListView() {
-    this.$toggleDetailView.next(false);
+  toggleView(isListView: boolean) {
+    this.$toggleDetailView.next(isListView);
   }
 
 }

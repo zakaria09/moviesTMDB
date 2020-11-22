@@ -1,8 +1,20 @@
-<img class="poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="Poster of {{ movie.title }}">
-<button
-  class="title"
-  mat-button
-  (click)="goToMoreDetail(movie)">
-  {{ movie.title }}
-</button>
-<favourite-movie class="favourite" [movie]="movie"></favourite-movie>
+<mat-list>
+  <h1>Movies List</h1>
+  <mat-divider></mat-divider>
+  <mat-checkbox (change)="showFavourites()" [checked]="onlyShowFavourites">Show only favourites</mat-checkbox>
+  <ng-container *ngIf="!onlyShowFavourites;else showFavourite">
+    <mat-list-item class="list" *ngFor="let movie of movies">
+      <img class="poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="Poster of {{ movie.title }}">
+      <button
+        class="title"
+        mat-button
+        (click)="goToMoreDetail(movie)">
+        {{ movie.title }}
+      </button>
+      <favourite-movie class="favourite" [movie]="movie"></favourite-movie>
+    </mat-list-item>
+  </ng-container>
+  <ng-template #showFavourite>
+    <list-favourites></list-favourites>
+  </ng-template>
+</mat-list>

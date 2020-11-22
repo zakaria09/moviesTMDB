@@ -1,12 +1,24 @@
 <button
   mat-fab
   color="primary"
+  class="back-button"
   aria-label="Go back"
   (click)="goBack()">
   <mat-icon>keyboard_arrow_left</mat-icon>
 </button>
 <ng-container *ngFor="let movie of ($movie | async)">
+  <div fxLayout="row" >
   <img class="poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="Poster of {{ movie.title }}">
-  <h1>{{ movie.title }}</h1>
-  <favourite-movie [movie]="movie"></favourite-movie>
+  <div class="info" fxLayout="column">
+    <div fxLayoutAlign="space-between center">
+      <h1 class="title">{{ movie.title }}</h1>
+      <favourite-movie class="favourite" [movie]="movie"></favourite-movie>
+    </div>
+    <div class="more-info">
+      <p>Release Date: {{ movie.release_date }}</p>
+      <star-rating class="star-rating" value="{{Math.round(movie.vote_average)}}" [totalstars]="10" checkedcolor="gold" uncheckedcolor="blue" readonly="true"></star-rating>
+    </div>
+  </div>
+</div>
+<p class="overview">{{ movie.overview }}</p>
 </ng-container>

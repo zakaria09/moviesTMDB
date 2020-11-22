@@ -2,3 +2,10 @@
 .container {
   margin: 0 10em;
 }
+
+$breakpoint-tablet: 770px;
+@media (max-width: $breakpoint-tablet) {
+  .container {
+    margin: 0 1em;
+  }
+}

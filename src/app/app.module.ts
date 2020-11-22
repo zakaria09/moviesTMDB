@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCheckboxModule,
     MatButtonModule,
     MatGridListModule,
+    FlexLayoutModule,
+    RatingModule
   ],
   providers: [
     MovieService

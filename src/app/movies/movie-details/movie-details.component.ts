@@ -10,6 +10,10 @@ import { ViewService } from '../../services/view.service';
 })
 export class MovieDetailsComponent implements OnInit, OnDestroy {
 
+  get Math() {
+    return Math;
+  }
+
   @Input() $movie: Observable<any>;
 
   constructor(
@@ -23,6 +27,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.viewService.backToListView();
+    this.viewService.toggleView(true);
   }
 }

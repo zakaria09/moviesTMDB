@@ -28,8 +28,7 @@ export class MoviesComponent implements OnInit {
   }
 
   handleSelectedMovie(movieSelectEvent) {
-    console.log('movieSelectEvent', movieSelectEvent);
     this.selectedMovie.next([movieSelectEvent]);
-    this.viewService.changeToDetailsView();
+    this.viewService.toggleView(false);
   }
 }
